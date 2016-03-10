@@ -1,14 +1,14 @@
 {
-  "name": "butter-provider-vodo",
+  "name": "butter-provider-trakt-watchlist",
   "version": "0.1.0",
-  "description": "A Butter provider for VODO.net",
+  "description": "A Butter Watchlist provider using Trakt.tv",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/butterproviders/butter-provider-vodo.git"
+    "url": "git+https://github.com/butterproviders/butter-provider-trakt-watchlist.git"
   },
   "keywords": [
     "vodo",
@@ -18,9 +18,9 @@
   "author": "Niv Sardi",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/butterproviders/butter-provider-vodo/issues"
+    "url": "https://github.com/butterproviders/butter-provider-trakt-watchlist/issues"
   },
-  "homepage": "https://github.com/butterproviders/butter-provider-vodo#readme",
+  "homepage": "https://github.com/butterproviders/butter-provider-trakt-watchlist#readme",
   "dependencies": {
     "defer-request": "0.0.2",
     "lodash": "^3.10.1",
