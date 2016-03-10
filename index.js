@@ -29,7 +29,10 @@ var Watchlist = function (args) {
 
 Watchlist.prototype.constructor = Watchlist;
 Watchlist.prototype.config = {
-    name: 'Watchlist'
+    name: 'Watchlist',
+    tabName: 'Trakt.tv Watchlist',
+    uniqueId: 'imdb_id',
+    type: 'watchlist',
 };
 
 var rearrange = function (items) {
