@@ -25,6 +25,11 @@
     "defer-request": "0.0.2",
     "lodash": "^3.10.1",
     "moment": "^2.11.1",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "trakt.tv": "^1.3.0",
+    "trakt.tv-ondeck": "0.0.1"
+  },
+  "devDependencies": {
+    "localStorage": "^1.0.3"
   }
 }
