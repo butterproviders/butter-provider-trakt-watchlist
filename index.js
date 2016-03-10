@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var debug = require('debug')('trakt:watchlist');
 var moment = require('moment');
 var localStorage = localStorage || require('localStorage');
 var Trakt = require('trakt.tv');
@@ -45,14 +46,14 @@ var rearrange = function (items) {
             }
             return 0;
         });
-        console.log('rearranged shows by air date');//debug
+        debug('rearranged shows by air date');//debug
         return arranged.concat(no_arrange);
     });
 };
 
 var format = function (items) {
     var itemList = [];
-    console.log('format'); //debug
+    debug('format'); //debug
 
     return Promise.all(items.map(function (item) {
         if (item.next_episode) {
@@ -77,7 +78,7 @@ var format = function (items) {
             }
         } else {
             if (!item.movie) {
-                console.log('item is not a movie', item); //debug
+                debug('item is not a movie', item); //debug
             } else {
                 if(moment(item.movie.released).fromNow().indexOf('in') !== -1) {
                     console.warn('"%s" is not released yet, not showing', item.movie.title);
@@ -110,7 +111,7 @@ Watchlist.prototype._load = function () {
     var watchlist = [];
 
     return that.trakt.ondeck.getAll().then(function (tv) {
-        console.log('shows fetched'); //debug
+        debug('shows fetched'); //debug
         // store update data
         localStorage.watchlist_update_shows = JSON.stringify(tv);
 
@@ -122,7 +123,7 @@ Watchlist.prototype._load = function () {
             type: 'movies'
         });
     }).then(function (movies) {
-        console.log('movies fetched'); //debug
+        debug('movies fetched'); //debug
 
         // store update data
         localStorage.watchlist_update_movies = JSON.stringify(movies);
@@ -155,7 +156,7 @@ Watchlist.prototype._update = function (id) {
     var watchlist = [];
 
     return that.trakt.ondeck.updateOne(update_data, id).then(function (tv) {
-        console.log('shows updated'); //debug
+        debug('shows updated'); //debug
         // store update data
         localStorage.watchlist_update_shows = JSON.stringify(tv);
 
