@@ -6,12 +6,21 @@ var Trakt = require('trakt.tv');
 
 var Watchlist = function (args) {
     args = args || {}
+
+    var tokens = args.tokens && JSON.parse(args.tokens)
+
     this.cacheTime = args.cacheTime || 14400000;
     this.trakt = args.trakt || new Trakt({
         client_id: args.id || '647c69e4ed1ad13393bf6edd9d8f9fb6fe9faf405b44320a6b71ab960b4540a2',
         client_secret: args.secret || 'f55b0a53c63af683588b47f6de94226b7572a6f83f40bd44c58a7c83fe1f2cb1',
         plugins: ['ondeck']
     });
+
+
+    if (tokens) {
+        debug ('loading tokens', tokens)
+        this.trakt.import_token(tokens);
+    }
 
     this.trakt.checkButterIsAuth = args.checkTrakt || function () {
         console.error("you did not supply a trakt auth function")
