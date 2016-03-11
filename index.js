@@ -216,7 +216,7 @@ Watchlist.prototype.fetch = function (filters) {
             }
         } else {
             // cache is 4 hours
-            if (!localStorage.watchlist_cached || localStorage.watchlist_fetched_time + that.cacheTime < Date.now()) {
+            if (!localStorage.watchlist_cached || parseInt(localStorage.watchlist_fetched_time) + that.cacheTime < Date.now()) {
                 console.error('Watchlist - no watchlist cached or cache expired');
                 if (that.trakt._authentication && that.trakt._authentication.access_token) {
                     return that.fetch({force:true}).then(resolve).catch(reject);
